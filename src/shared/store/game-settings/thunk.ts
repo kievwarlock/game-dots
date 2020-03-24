@@ -1,13 +1,19 @@
 import {ApplicationState} from "@/shared/store/";
 import {Dispatch} from "redux";
-import {RequestSettingsAction} from "./actions";
+import {DisableSettingsLoader, EnableSettingsLoader, LoadSettingsAction} from "./actions";
 
-export const FetchSettingsAction = () => (
+const URL = 'https://starnavi-frontend-test-task.herokuapp.com/game-settings';
+
+export const LoadSettingsActionAsync = () => (
     async (dispatch: Dispatch, getState: () => ApplicationState) => {
         try {
-            dispatch(RequestSettingsAction({}));
+            dispatch(EnableSettingsLoader());
+            const response = await fetch(URL);
+            const settings = await response.json();
+            dispatch(LoadSettingsAction(settings));
+            dispatch(DisableSettingsLoader());
         } catch (e) {
-            console.log("FetchSettingsAction error");
+            console.log("LoadSettingsActionAsync error");
         }
     }
 );

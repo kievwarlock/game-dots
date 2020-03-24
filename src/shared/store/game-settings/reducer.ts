@@ -1,16 +1,33 @@
 import {Reducer} from "redux"
-import {ActionTypes, GameSettingsType, SettingActions} from "./types";
+import {ActionTypes, GameSettingsStateType, SettingActions} from "./types";
 
-const initialState: GameSettingsType = {
+const initialState: GameSettingsStateType = {
+    gameDifficulty:{},
+    loading: false
 };
 
-export const gameSettings: Reducer<GameSettingsType> = (state = initialState, action: ActionTypes) => {
+export const gameSettings: Reducer<GameSettingsStateType> = (state = initialState, action: ActionTypes) => {
 
     switch (action.type) {
-        case SettingActions.REQUEST_SETTINGS:
+        case SettingActions.LOAD_SETTINGS:
 
             return {
                 ...state,
+                gameDifficulty: action.settings
+            };
+
+        case SettingActions.ENABLE_SETTINGS_LOADER:
+
+            return {
+                ...state,
+                loading: false
+            };
+
+        case SettingActions.DISABLE_SETTINGS_LOADER:
+
+            return {
+                ...state,
+                loading: true
             };
 
         default:
