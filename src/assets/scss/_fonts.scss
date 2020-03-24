@@ -1,0 +1,20 @@
+$fontSizes: (
+    xs: 12px,
+    s: 14px,
+    m: 16px,
+    l: 18px,
+    xl: 20px,
+    xxl: 24px,
+);
+
+$RobotoFont: "Roboto";
+
+@mixin font($font) {;
+    font-family: $font;
+    font-style: normal;
+    line-height: normal;
+    font-stretch: normal;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

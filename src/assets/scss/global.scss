@@ -1,0 +1,50 @@
+@import "reset";
+@import "media";
+@import "colors";
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: $color-text-default;
+  background-color: $main-background-color;
+}
+
+.flex_expand {
+  flex: 1;
+}
+
+.text_nowrap {
+  white-space: nowrap;
+}
+
+.text_nowrap {
+  white-space: nowrap;
+}
+
+.text_pre-wrap {
+  white-space: pre-wrap;
+}
+
+.text_overflow  {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text_left {
+  text-align: left;
+}
+
+.text_right {
+  text-align: right;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.text_justify {
+  text-align: justify;
+}
+

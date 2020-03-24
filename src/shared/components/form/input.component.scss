@@ -1,0 +1,19 @@
+@import "~@/assets/scss/colors";
+@import "~@/assets/scss/fonts";
+
+.input-text {
+  width: 100%;
+  display: inline-block;
+
+  &__input {
+    margin: 0;
+    padding: 10px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    background: transparent;
+    color: $color-text-default;
+    font-size: map_get($fontSizes, m);
+    @include font($RobotoFont);
+  }
+}
