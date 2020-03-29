@@ -1,0 +1,14 @@
+.winners {
+    position: relative;
+    padding: 10px;
+
+    &__title {
+       font-size: 18px;
+        color:#3f414b;;
+    }
+
+    &__wrapper {
+        margin-top: 10px;
+        width: 100%;
+    }
+}

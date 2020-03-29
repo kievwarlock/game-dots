@@ -1,15 +1,13 @@
 import {ApplicationState} from "@/shared/store/";
 import {Dispatch} from "redux";
 import {LoadWinnersAction, DisableWinnersLoader, EnableWinnersLoader} from "./actions";
-
-const URL = 'https://starnavi-frontend-test-task.herokuapp.com/winners';
+import {GameWinnerService} from "@/shared/services/game-winners.service";
 
 export const LoadWinnersActionAsync = () => (
     async (dispatch: Dispatch, getState: () => ApplicationState) => {
         try {
             dispatch(EnableWinnersLoader());
-            const response = await fetch(URL);
-            const winners = await response.json();
+            const winners = await GameWinnerService.getGameWinners();
             dispatch(LoadWinnersAction(winners));
             dispatch(DisableWinnersLoader());
         } catch (e) {

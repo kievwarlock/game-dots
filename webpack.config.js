@@ -9,7 +9,7 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const webpackMerge = require("webpack-merge");
 
 const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev
+const isProd = !isDev;
 
 
 const commonConfig = {
@@ -70,7 +70,7 @@ const commonConfig = {
         }),
     ],
 
-}
+};
 
 const devConfig = {
     mode: "development",

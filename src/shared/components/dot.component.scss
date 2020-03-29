@@ -1,0 +1,23 @@
+.dot {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+  &-empty {
+    background: #fff;
+  }
+
+  &-active {
+    background: #ccc;
+  }
+
+  &-user {
+    background: green;
+  }
+
+  &-computer {
+    background: red;
+  }
+
+}
