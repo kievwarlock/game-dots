@@ -1,11 +1,11 @@
-import { SettingActions, GameDifficultyType} from "./types";
+import {LevelSettingsType, SettingActions} from "./types";
 
 export type LoadSettingsActionType = {
     type: SettingActions.LOAD_SETTINGS;
-    settings: GameDifficultyType;
+    settings: LevelSettingsType[];
 }
 
-export const LoadSettingsAction = (settings: GameDifficultyType): LoadSettingsActionType => ({
+export const LoadSettingsAction = (settings: LevelSettingsType[]): LoadSettingsActionType => ({
     type: SettingActions.LOAD_SETTINGS,
     settings
 });

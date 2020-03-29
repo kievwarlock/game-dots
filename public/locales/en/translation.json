@@ -1,3 +1,13 @@
 {
-  "title": "Game in Dots"
+  "title": "Game in Dots",
+  "leader_title": "Leader Board",
+  "easyMode": "Easy mode",
+  "normalMode": "Normal mode",
+  "hardMode": "Hard mode",
+  "user_placeholder": "Enter your name",
+  "play": "Play",
+  "play_again": "Play again",
+  "win": "win",
+  "computer": "computer",
+  "enter_your_name": "Enter your name"
 }

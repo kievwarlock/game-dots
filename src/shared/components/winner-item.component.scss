@@ -1,18 +1,22 @@
 .winner-item {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    justify-content: space-between;
-    background: #92939a;
-    margin: 5px 0px;
+  display: flex;
+  padding: 15px 20px;
+  align-items: center;
+  justify-content: space-between;
+  background: #d0d8dc;
+  margin: 2px 0px;
+  color: #aab2b6;
 
-    &__name {
-        font-size: 18px;
-        font-weight: bold;
-    }
-    &__date {
-        font-weight: bold;
-        font-size: 16px;
-    }
+  &__name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  &__date {
+    margin-left: auto;
+    font-weight: bold;
+    font-size: 16px;
+  }
 }
 

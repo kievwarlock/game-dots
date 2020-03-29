@@ -12,15 +12,15 @@ export type GameFieldsType = {
 }
 
 export const Game: React.FC<GameFieldsType> = ({gameFields, dotClick}) => {
-
+    const dotWidth = 40;
     const columns = Math.sqrt(gameFields.length);
-    const setFieldStyle = (columns: number) => ({
-        gridTemplateColumns: `repeat(${columns}, 30px)`,
-        gridTemplateRows: `repeat(${columns}, 30px)`
+    const setFieldStyle = (columns: number, width: number) => ({
+        gridTemplateColumns: `repeat(${columns}, ${width}px)`,
+        gridTemplateRows: `repeat(${columns}, ${width}px)`
     });
 
     return (
-        <div className="game" style={setFieldStyle(columns)}>
+        <div className="game" style={setFieldStyle(columns, dotWidth)}>
             {(gameFields && gameFields.length > 0) && (
                 gameFields.map((item, index) => (
                     <Dot

@@ -7,22 +7,15 @@ export enum SettingActions {
 }
 
 export type LevelSettingsType = {
+    title: string;
     field: number;
     delay: number;
 }
 
-export type GameDifficultyType = {
-    easyMode?: LevelSettingsType;
-    normalMode?: LevelSettingsType;
-    hardMode?: LevelSettingsType;
-}
-
 export type GameSettingsStateType = {
-    gameDifficulty: GameDifficultyType;
+    gameDifficulty: LevelSettingsType[];
     loading: boolean;
 }
-
-
 
 export type InferValue<T> = T extends { [key: string]: infer U} ? U : never;
 

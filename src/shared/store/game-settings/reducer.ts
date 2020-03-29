@@ -2,7 +2,7 @@ import {Reducer} from "redux"
 import {ActionTypes, GameSettingsStateType, SettingActions} from "./types";
 
 const initialState: GameSettingsStateType = {
-    gameDifficulty:{},
+    gameDifficulty: [],
     loading: false
 };
 
