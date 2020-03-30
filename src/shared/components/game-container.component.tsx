@@ -1,6 +1,6 @@
 import "./game-container.component.scss";
 import * as React from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ApplicationState} from "@/shared/store";
 import {generateGameFieldsArray, generateShuffleArray} from "@/shared/utils/game";
 import {GameSettingsStateType, LevelSettingsType} from "@/shared/store/game-settings/types";
@@ -10,10 +10,11 @@ import {SelectDifficulty} from "@/shared/components/form/select-difficulty.compo
 import {Button} from "@/shared/components/form/button.component";
 import {Input} from "@/shared/components/form/input.component";
 import {useTranslation} from "react-i18next";
-
+import {AddWinnerActionAsync} from "@/shared/store/winners/thunk";
 
 export const GameContainer: React.FC = () => {
     const {t} = useTranslation();
+    const dispatch = useDispatch();
     const {gameDifficulty, loading: loadingSetting} = useSelector<ApplicationState, GameSettingsStateType>(state => state.settings);
 
     const [isStart, setIsStart] = React.useState(false);
@@ -104,11 +105,13 @@ export const GameContainer: React.FC = () => {
 
         if (userStat > gameFields.length / 2) {
             setGameTitle(`${userName} ${t("win")}`);
+            dispatch(AddWinnerActionAsync(userName));
             return endGame();
         }
 
         if (computerStat >= gameFields.length / 2) {
             setGameTitle(`${t("computer")} ${t("win")}`);
+            dispatch(AddWinnerActionAsync("Computer"));
             return endGame();
         }
 
@@ -124,7 +127,6 @@ export const GameContainer: React.FC = () => {
         };
 
     }, [progress, isStart]);
-
 
     return (
         <div className="game-container">
@@ -155,11 +157,9 @@ export const GameContainer: React.FC = () => {
                 </div>
             )}
             <div className="game-container__game">
-                {gameTitle && (
-                    <div className="game-container__game-title">
-                        {gameTitle}
-                    </div>
-                )}
+                <div className="game-container__game-title">
+                    {gameTitle}
+                </div>
                 {(gameFields && gameFields.length > 0) && (
                     <Game
                         gameFields={gameFields}

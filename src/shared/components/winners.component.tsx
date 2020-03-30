@@ -16,7 +16,7 @@ export const Winners: React.FC<WinnerComponentType> = ({winners}) => {
             <div className="winners__title">{t("leader_title")}</div>
             <div className="winners__wrapper">
                 {winners && (
-                    winners.slice(0, 5).map((winner) => (
+                    winners.map((winner) => (
                         <WinnerItem key={winner.id} {...winner} />
                     ))
                 )}
