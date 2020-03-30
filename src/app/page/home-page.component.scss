@@ -1,3 +1,45 @@
 .home-page {
-    position: relative;
+  position: relative;
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3f414b;
+    padding: 10px;
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+  }
+
+  &__lang-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3f414b;
+    margin-right: 10px;
+  }
+
+  &__game-container {
+    display: flex;
+    border: 2px solid #ccc;
+  }
+
+  &__game {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-right: 2px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  &__winners {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
 }

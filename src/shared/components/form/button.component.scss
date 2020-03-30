@@ -1,0 +1,16 @@
+.button {
+  display: inline-block;
+  background: #7b8d93;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #f0f2f3;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover, &:active {
+    background: #6e9378;
+  }
+
+}

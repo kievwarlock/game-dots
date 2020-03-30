@@ -4,7 +4,7 @@ import Backend from "i18next-xhr-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
 const fallbackLng = ["en"];
-const availableLanguages = ["en", "de"];
+export const availableLanguages = ["en", "ru"];
 
 i18n
     .use(Backend) // load translation using xhr -> see /public/locales.

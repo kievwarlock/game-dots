@@ -1,18 +1,20 @@
 import * as actions from "./actions";
 
 export enum SettingActions {
-    REQUEST_SETTINGS = "RequestSettings",
+    LOAD_SETTINGS = "LoadSettings",
+    ENABLE_SETTINGS_LOADER = "EnableSettingsLoader",
+    DISABLE_SETTINGS_LOADER = "DisableWSettingsLoader"
 }
 
 export type LevelSettingsType = {
+    title: string;
     field: number;
     delay: number;
 }
 
-export type GameSettingsType = {
-    easyMode?: LevelSettingsType;
-    normalMode?: LevelSettingsType;
-    hardMode?: LevelSettingsType;
+export type GameSettingsStateType = {
+    gameDifficulty: LevelSettingsType[];
+    loading: boolean;
 }
 
 export type InferValue<T> = T extends { [key: string]: infer U} ? U : never;
