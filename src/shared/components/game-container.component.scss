@@ -1,3 +1,5 @@
+@import "~@/assets/scss/media";
+
 .game-container {
 
   &__navigation {
@@ -7,7 +9,7 @@
   }
 
   &__navigation-item {
-    margin-right: 10px;
+    padding-right: 10px;
   }
 
   &__game {
@@ -18,7 +20,27 @@
 
   &__game-title {
     font-size: 24px;
-    color:#909090;
+    color: #909090;
     margin: 20px 0px;
+  }
+}
+
+@include media-size(null, $size-md) {
+  .game-container {
+
+    &__navigation {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    &__navigation-item {
+      padding-bottom: 10px;
+      padding-right: 0px;
+      width: 100%;
+      text-align: center;
+      max-width: 300px;
+    }
   }
 }

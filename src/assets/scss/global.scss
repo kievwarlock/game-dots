@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic');
 @import "reset";
 @import "colors";
 
@@ -8,6 +9,7 @@ body {
   padding: 0;
   color: $color-text-default;
   background-color: $main-background-color;
+  font-family: 'Roboto', sans-serif;
 }
 
 .flex_expand {
