@@ -1,10 +1,9 @@
-import {ApplicationState} from "@/shared/store/";
 import {Dispatch} from "redux";
 import {DisableSettingsLoader, EnableSettingsLoader, LoadSettingsAction} from "./actions";
 import {GameSettingsService} from "@/shared/services/game-settings.service";
 
 export const LoadSettingsActionAsync = () => (
-    async (dispatch: Dispatch, getState: () => ApplicationState) => {
+    async (dispatch: Dispatch) => {
         try {
             dispatch(EnableSettingsLoader());
             const settings = await GameSettingsService.getGameSettings();

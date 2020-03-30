@@ -9,5 +9,6 @@
   "play_again": "Играть снова",
   "win": "выиграл",
   "computer": "компьютер",
-  "enter_your_name": "Введите ваше имя"
+  "enter_your_name": "Введите ваше имя",
+  "language": "язык"
 }

@@ -1,0 +1,1 @@
+export const API_ENDPOINT = 'https://starnavi-frontend-test-task.herokuapp.com';

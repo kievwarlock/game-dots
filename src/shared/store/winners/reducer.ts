@@ -10,26 +10,20 @@ export const gameWinners: Reducer<WinnersStateType> = (state = initialState, act
 
     switch (action.type) {
         case WinnerActions.LOAD_WINNERS:
-
             return {
                 ...state,
                 winners: [...state.winners, ...action.winners]
             };
-
         case WinnerActions.ENABLE_WINNER_LOADER:
-
             return {
                 ...state,
                 loading: false
             };
-
         case WinnerActions.DISABLE_WINNER_LOADER:
-
             return {
                 ...state,
                 loading: true
             };
-
         default:
             return {
                 ...state

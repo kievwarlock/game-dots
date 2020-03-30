@@ -16,7 +16,7 @@ export const HomePage: React.FC = () => {
     const {t} = useTranslation();
     const {winners, loading: loadingWinner} = useSelector<ApplicationState, WinnersStateType>(state => state.winners);
     const dispatch = useDispatch();
-    const [currentLanguage, setCurrentLanguage] = React.useState(i18next.language)
+    const [currentLanguage, setCurrentLanguage] = React.useState(i18next.language);
 
     const changeLang = async (language: any) => {
         try {
@@ -42,7 +42,7 @@ export const HomePage: React.FC = () => {
             <h1 className="home-page__title text_center">{t("title")}</h1>
             <div className="home-page__lang">
                 <div className="home-page__lang-label">
-                    Язык
+                    {t("language")}
                 </div>
                 <Select
                     value={languages}
@@ -55,7 +55,7 @@ export const HomePage: React.FC = () => {
                     <GameContainer/>
                 </div>
                 <div className="home-page__winners">
-                    {loadingWinner ? <Winners winners={winners}/> : "Loading..."}
+                    {loadingWinner ? <Winners winners={winners.reverse().slice(0, 5)}/> : "Loading..."}
                 </div>
             </div>
         </div>
