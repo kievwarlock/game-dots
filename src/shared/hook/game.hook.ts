@@ -14,7 +14,7 @@ export type UseGameType = {
     onGameEnd?: (winner?: GameWinner) => void;
 };
 
-type GameFieldsType = {
+export type GameFieldsType = {
     status: DotStatus;
 };
 
@@ -27,7 +27,7 @@ export type UseGameStateType = {
     computerMoves: number[];
 };
 
-export type gameStatType = {
+export type GameStatType = {
     user: number;
     computer: number;
 };
@@ -59,7 +59,7 @@ export function useGame({fields, daley, onGameEnd, onGameStart}: UseGameType) {
         setGameStates({...gameState.current});
     }, [fields, daley]);
 
-    const gameStat = (array: GameFieldsType[]): gameStatType => {
+    const gameStat = (array: GameFieldsType[]): GameStatType => {
         const computedStats = array.reduce((acc: any, value) => {
             acc[value.status] = acc[value.status] ? acc[value.status] + 1 : 1;
             return acc;
