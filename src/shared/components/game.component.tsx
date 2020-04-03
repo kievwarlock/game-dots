@@ -8,7 +8,7 @@ export type GameFieldDotType = {
 
 export type GameFieldsType = {
     gameFields: GameFieldDotType[];
-    dotClick?: (status: DotStatus, index: number) => void;
+    dotClick?: (status: DotStatus) => void;
 }
 
 export const Game: React.FC<GameFieldsType> = ({gameFields, dotClick}) => {
@@ -26,7 +26,7 @@ export const Game: React.FC<GameFieldsType> = ({gameFields, dotClick}) => {
                     <Dot
                         key={index}
                         status={item.status}
-                        onClick={(status) => dotClick(status, index)}
+                        onClick={(status) => dotClick(status)}
                     />
                 ))
             )}
