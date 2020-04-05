@@ -7,13 +7,6 @@ export enum GameWinner {
     COMPUTER = "computer",
 }
 
-export type UseGameType = {
-    fields: number;
-    daley: number;
-    onGameStart?: () => void;
-    onGameEnd?: (winner?: GameWinner) => void;
-};
-
 export type GameFieldsType = {
     status: DotStatus;
 };
@@ -30,6 +23,13 @@ export type UseGameStateType = {
 export type GameStatType = {
     user: number;
     computer: number;
+};
+
+export type UseGameType = {
+    fields: number;
+    daley: number;
+    onGameStart?: () => void;
+    onGameEnd?: (winner?: GameWinner) => void;
 };
 
 export function useGame({fields, daley, onGameEnd, onGameStart}: UseGameType) {
@@ -60,7 +60,7 @@ export function useGame({fields, daley, onGameEnd, onGameStart}: UseGameType) {
     }, [fields, daley]);
 
     const gameStat = (array: GameFieldsType[]): GameStatType => {
-        const computedStats = array.reduce((acc: any, value) => {
+        const computedStats = array.reduce((acc: { [status: string]: number }, value) => {
             acc[value.status] = acc[value.status] ? acc[value.status] + 1 : 1;
             return acc;
         }, {});
@@ -112,7 +112,7 @@ export function useGame({fields, daley, onGameEnd, onGameStart}: UseGameType) {
         if (status === DotStatus.ACTIVE) {
             updateFirstFieldStatus(DotStatus.USER);
             gameState.current.computerMoves.shift();
-            clearTimeout(gameState.current.tickId);
+            clearInterval(gameState.current.tickId);
             tick();
         }
     };
@@ -130,7 +130,7 @@ export function useGame({fields, daley, onGameEnd, onGameStart}: UseGameType) {
     const endGame = (winner?: GameWinner) => {
         if (gameState.current.isGameStart && gameState.current.tickId) {
             gameState.current.isGameStart = false;
-            clearTimeout(gameState.current.tickId);
+            clearInterval(gameState.current.tickId);
         }
         updateGameFields();
         if (onGameEnd) {
